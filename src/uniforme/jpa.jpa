@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings jaxb-support="true" id="_14438905245071" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:ns4="http://nbmodeler.java.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <jpa:default-class class="ControlPK">
+        <jpa:embeddable>true</jpa:embeddable>
+        <jpa:attribute name="empleadosIdempleados" attribute-type="int" visibile="true"/>
+        <jpa:attribute name="usuariosIdusuarios" attribute-type="int" visibile="true"/>
+    </jpa:default-class>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="Areas" visibile="true" minimized="false" id="_14438905245344">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="idareas" attribute-type="Integer" visibile="true" id="_14438905245575">
+                <jpa:column name="idareas" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="idareas"/>
+            </jpa:id>
+            <jpa:basic name="area" attribute-type="String" visibile="true" id="_14438905245766">
+                <jpa:column name="area" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:one-to-many name="empleadosList" target-entity="Empleados" mapped-by="areasIdareas" collection-type="java.util.List" connected-entity-id="_144389052461521" connected-attribute-id="_144389052461527" visibile="true" id="_14438905245777">
+                <jpa:cascade>
+                    <jpa:cascade-all/>
+                </jpa:cascade>
+            </jpa:one-to-many>
+        </jpa:attributes>
+        <jpa:named-query name="Areas.findAll">
+            <jpa:query>SELECT a FROM Areas a</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Areas.findByIdareas">
+            <jpa:query>SELECT a FROM Areas a WHERE a.idareas = :idareas</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Areas.findByArea">
+            <jpa:query>SELECT a FROM Areas a WHERE a.area = :area</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="areas"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="Cargos" visibile="true" minimized="false" id="_14438905245918">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="idcargos" attribute-type="Integer" visibile="true" id="_14438905245919">
+                <jpa:column name="idcargos" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="idcargos"/>
+            </jpa:id>
+            <jpa:basic name="cargo" attribute-type="String" visibile="true" id="_144389052459110">
+                <jpa:column name="cargo" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:one-to-many name="empleadosList" target-entity="Empleados" mapped-by="cargosIdcargos" collection-type="java.util.List" connected-entity-id="_144389052461521" connected-attribute-id="_144389052461528" visibile="true" id="_144389052459111">
+                <jpa:cascade>
+                    <jpa:cascade-all/>
+                </jpa:cascade>
+            </jpa:one-to-many>
+        </jpa:attributes>
+        <jpa:named-query name="Cargos.findAll">
+            <jpa:query>SELECT c FROM Cargos c</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Cargos.findByIdcargos">
+            <jpa:query>SELECT c FROM Cargos c WHERE c.idcargos = :idcargos</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Cargos.findByCargo">
+            <jpa:query>SELECT c FROM Cargos c WHERE c.cargo = :cargo</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="cargos"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="EMBEDDEDID" compositePrimaryKeyClass="ControlPK" static-metamodel="false" abstract="false" class="Control" visibile="true" minimized="false" id="_144389052460212">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="empleadosIdempleados" attribute-type="int" visibile="true" id="_144389052460419">
+                <jpa:column name="empleados_idempleados" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:sequence-generator name="empleados_idempleados"/>
+            </jpa:id>
+            <jpa:id name="usuariosIdusuarios" attribute-type="int" visibile="true" id="_144389052460420">
+                <jpa:column name="usuarios_idusuarios" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:sequence-generator name="usuarios_idusuarios"/>
+            </jpa:id>
+            <jpa:embedded-id name="controlPK" attribute-type="ControlPK" visibile="true" id="_144389052460313"/>
+            <jpa:basic name="fechaSalida" attribute-type="java.util.Date" visibile="true" id="_144389052460314">
+                <jpa:column name="fecha_salida" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:temporal>TIMESTAMP</jpa:temporal>
+            </jpa:basic>
+            <jpa:basic name="fechaEntrada" attribute-type="java.util.Date" visibile="true" id="_144389052460315">
+                <jpa:column name="fecha_entrada" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:temporal>TIMESTAMP</jpa:temporal>
+            </jpa:basic>
+            <jpa:many-to-one name="prendasIdprendas" target-entity="Prendas" optional="false" primaryKey="false" connected-entity-id="_144389052462430" connected-attribute-id="_144389052462436" visibile="true" id="_144389052460316">
+                <jpa:join-column name="prendas_idprendas" referenced-column-name="idprendas" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="empleados" target-entity="Empleados" optional="false" primaryKey="false" connected-entity-id="_144389052461521" connected-attribute-id="_144389052461526" visibile="true" id="_144389052460417">
+                <jpa:join-column name="empleados_idempleados" referenced-column-name="idempleados" unique="false" nullable="true" insertable="false" updatable="false"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="usuarios" target-entity="Usuarios" optional="false" primaryKey="false" connected-entity-id="_144389052463238" connected-attribute-id="_144389052463242" visibile="true" id="_144389052460418">
+                <jpa:join-column name="usuarios_idusuarios" referenced-column-name="idusuarios" unique="false" nullable="true" insertable="false" updatable="false"/>
+            </jpa:many-to-one>
+        </jpa:attributes>
+        <jpa:named-query name="Control.findAll">
+            <jpa:query>SELECT c FROM Control c</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Control.findByEmpleadosIdempleados">
+            <jpa:query>SELECT c FROM Control c WHERE c.controlPK.empleadosIdempleados = :empleadosIdempleados</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Control.findByUsuariosIdusuarios">
+            <jpa:query>SELECT c FROM Control c WHERE c.controlPK.usuariosIdusuarios = :usuariosIdusuarios</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Control.findByFechaSalida">
+            <jpa:query>SELECT c FROM Control c WHERE c.fechaSalida = :fechaSalida</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Control.findByFechaEntrada">
+            <jpa:query>SELECT c FROM Control c WHERE c.fechaEntrada = :fechaEntrada</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="control"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="Empleados" visibile="true" minimized="false" id="_144389052461521">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="idempleados" attribute-type="Integer" visibile="true" id="_144389052461522">
+                <jpa:column name="idempleados" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:sequence-generator name="idempleados"/>
+            </jpa:id>
+            <jpa:basic name="nombres" optional="false" attribute-type="String" visibile="true" id="_144389052461523">
+                <jpa:column name="nombres" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="apellidos" optional="false" attribute-type="String" visibile="true" id="_144389052461524">
+                <jpa:column name="apellidos" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="actDes" optional="false" attribute-type="boolean" visibile="true" id="_144389052461525">
+                <jpa:column name="act_des" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:many-to-one name="areasIdareas" target-entity="Areas" optional="false" primaryKey="false" connected-entity-id="_14438905245344" connected-attribute-id="_14438905245777" visibile="true" id="_144389052461527">
+                <jpa:join-column name="areas_idareas" referenced-column-name="idareas" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="cargosIdcargos" target-entity="Cargos" optional="false" primaryKey="false" connected-entity-id="_14438905245918" connected-attribute-id="_144389052459111" visibile="true" id="_144389052461528">
+                <jpa:join-column name="cargos_idcargos" referenced-column-name="idcargos" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="controlList" target-entity="Control" mapped-by="empleados" collection-type="java.util.List" connected-entity-id="_144389052460212" connected-attribute-id="_144389052460417" visibile="true" id="_144389052461526">
+                <jpa:cascade>
+                    <jpa:cascade-all/>
+                </jpa:cascade>
+            </jpa:one-to-many>
+            <jpa:one-to-many name="prendasList" target-entity="Prendas" mapped-by="empleadosIdempleados" collection-type="java.util.List" connected-entity-id="_144389052462430" connected-attribute-id="_144389052462437" visibile="true" id="_144389052461529">
+                <jpa:cascade>
+                    <jpa:cascade-all/>
+                </jpa:cascade>
+            </jpa:one-to-many>
+        </jpa:attributes>
+        <jpa:named-query name="Empleados.findAll">
+            <jpa:query>SELECT e FROM Empleados e</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Empleados.findByIdempleados">
+            <jpa:query>SELECT e FROM Empleados e WHERE e.idempleados = :idempleados</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Empleados.findByNombres">
+            <jpa:query>SELECT e FROM Empleados e WHERE e.nombres = :nombres</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Empleados.findByApellidos">
+            <jpa:query>SELECT e FROM Empleados e WHERE e.apellidos = :apellidos</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Empleados.findByActDes">
+            <jpa:query>SELECT e FROM Empleados e WHERE e.actDes = :actDes</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="empleados"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="Prendas" visibile="true" minimized="false" id="_144389052462430">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="idprendas" attribute-type="Integer" visibile="true" id="_144389052462431">
+                <jpa:column name="idprendas" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:sequence-generator name="idprendas"/>
+            </jpa:id>
+            <jpa:basic name="articulo" optional="false" attribute-type="String" visibile="true" id="_144389052462432">
+                <jpa:column name="articulo" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="precio" optional="false" attribute-type="int" visibile="true" id="_144389052462433">
+                <jpa:column name="precio" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="observacion" attribute-type="String" visibile="true" id="_144389052462434">
+                <jpa:column name="observacion" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="empleadosAreasIdareas" optional="false" attribute-type="int" visibile="true" id="_144389052462435">
+                <jpa:column name="empleados_areas_idareas" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:many-to-one name="empleadosIdempleados" target-entity="Empleados" optional="false" primaryKey="false" connected-entity-id="_144389052461521" connected-attribute-id="_144389052461529" visibile="true" id="_144389052462437">
+                <jpa:join-column name="empleados_idempleados" referenced-column-name="idempleados" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="controlList" target-entity="Control" mapped-by="prendasIdprendas" collection-type="java.util.List" connected-entity-id="_144389052460212" connected-attribute-id="_144389052460316" visibile="true" id="_144389052462436">
+                <jpa:cascade>
+                    <jpa:cascade-all/>
+                </jpa:cascade>
+            </jpa:one-to-many>
+        </jpa:attributes>
+        <jpa:named-query name="Prendas.findAll">
+            <jpa:query>SELECT p FROM Prendas p</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Prendas.findByIdprendas">
+            <jpa:query>SELECT p FROM Prendas p WHERE p.idprendas = :idprendas</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Prendas.findByArticulo">
+            <jpa:query>SELECT p FROM Prendas p WHERE p.articulo = :articulo</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Prendas.findByPrecio">
+            <jpa:query>SELECT p FROM Prendas p WHERE p.precio = :precio</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Prendas.findByObservacion">
+            <jpa:query>SELECT p FROM Prendas p WHERE p.observacion = :observacion</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Prendas.findByEmpleadosAreasIdareas">
+            <jpa:query>SELECT p FROM Prendas p WHERE p.empleadosAreasIdareas = :empleadosAreasIdareas</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="prendas"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" compositePrimaryKeyType="NONE" static-metamodel="false" abstract="false" class="Usuarios" visibile="true" minimized="false" id="_144389052463238">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:attributes>
+            <jpa:id name="idusuarios" attribute-type="Integer" visibile="true" id="_144389052463239">
+                <jpa:column name="idusuarios" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+                <jpa:sequence-generator name="idusuarios"/>
+            </jpa:id>
+            <jpa:basic name="usuario" optional="false" attribute-type="String" visibile="true" id="_144389052463240">
+                <jpa:column name="usuario" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="contrasena" optional="false" attribute-type="String" visibile="true" id="_144389052463241">
+                <jpa:column name="contrasena" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:one-to-many name="controlList" target-entity="Control" mapped-by="usuarios" collection-type="java.util.List" connected-entity-id="_144389052460212" connected-attribute-id="_144389052460418" visibile="true" id="_144389052463242">
+                <jpa:cascade>
+                    <jpa:cascade-all/>
+                </jpa:cascade>
+            </jpa:one-to-many>
+        </jpa:attributes>
+        <jpa:named-query name="Usuarios.findAll">
+            <jpa:query>SELECT u FROM Usuarios u</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Usuarios.findByIdusuarios">
+            <jpa:query>SELECT u FROM Usuarios u WHERE u.idusuarios = :idusuarios</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Usuarios.findByUsuario">
+            <jpa:query>SELECT u FROM Usuarios u WHERE u.usuario = :usuario</jpa:query>
+        </jpa:named-query>
+        <jpa:named-query name="Usuarios.findByContrasena">
+            <jpa:query>SELECT u FROM Usuarios u WHERE u.contrasena = :contrasena</jpa:query>
+        </jpa:named-query>
+        <jpa:table name="usuarios"/>
+    </jpa:entity>
+    <jpa:diagram id="_14438905245122">
+        <plane elementRef="_14438905245071" id="_14438905245143_p">
+            <shape elementRef="_14438905245344" id="_14438905245344_gui">
+                <Bounds x="512.0" y="636.0" width="140.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_14438905245918" id="_14438905245918_gui">
+                <Bounds x="32.0" y="636.0" width="140.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_144389052460212" id="_144389052460212_gui">
+                <Bounds x="512.0" y="32.0" width="186.0" height="245.0"/>
+            </shape>
+            <shape elementRef="_144389052461521" id="_144389052461521_gui">
+                <Bounds x="289.0" y="341.0" width="159.0" height="231.0"/>
+            </shape>
+            <shape elementRef="_144389052462430" id="_144389052462430_gui">
+                <Bounds x="32.0" y="32.0" width="193.0" height="210.0"/>
+            </shape>
+            <shape elementRef="_144389052463238" id="_144389052463238_gui">
+                <Bounds x="762.0" y="341.0" width="147.0" height="147.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>

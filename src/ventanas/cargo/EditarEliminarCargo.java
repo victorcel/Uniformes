@@ -52,8 +52,6 @@ public class EditarEliminarCargo extends javax.swing.JInternalFrame {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         LibreriaUniformePUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("LibreriaUniformePU").createEntityManager();
-        areasQuery = java.beans.Beans.isDesignTime() ? null : LibreriaUniformePUEntityManager.createQuery("SELECT a FROM Areas a");
-        areasList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : areasQuery.getResultList();
         cargosQuery = java.beans.Beans.isDesignTime() ? null : LibreriaUniformePUEntityManager.createQuery("SELECT c FROM Cargos c");
         cargosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : cargosQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -208,8 +206,6 @@ public class EditarEliminarCargo extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager LibreriaUniformePUEntityManager;
-    private java.util.List<entidades.Areas> areasList;
-    private javax.persistence.Query areasQuery;
     private java.util.List<entidades.Cargos> cargosList;
     private javax.persistence.Query cargosQuery;
     private javax.swing.JButton editar;

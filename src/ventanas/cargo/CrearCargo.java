@@ -53,6 +53,8 @@ public class CrearCargo extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
 
         setTitle("Crear Cargo");
+        setOpaque(true);
+        setVisible(true);
 
         jLabel1.setText("Cargo:");
 

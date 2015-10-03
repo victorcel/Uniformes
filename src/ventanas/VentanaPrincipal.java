@@ -9,6 +9,8 @@ import ventanas.area.CrearArea;
 import ventanas.area.EditarEliminarArea;
 import ventanas.cargo.EditarEliminarCargo;
 import ventanas.cargo.CrearCargo;
+import ventanas.cargo.EditarEliminarEmpleado;
+import ventanas.empleado.CrearEmpleado;
 
 /**
  *
@@ -21,8 +23,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents();
-        //setExtendedState(MAXIMIZED_BOTH);
-        setLocationRelativeTo(this);
+        setExtendedState(MAXIMIZED_BOTH);
+        setLocationRelativeTo(null);
+       // setSize(800, 800);
         pack();
     }
 
@@ -44,8 +47,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         menuItemAreas1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,7 +58,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Archivo");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Item");
+        jMenu2.setText("Aplicación");
 
         jMenu3.setText("Area");
 
@@ -95,11 +100,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jMenu2.add(jMenu4);
 
+        jMenu5.setText("Empleados");
+
+        jMenuItem3.setText("Crear Empleado");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem3);
+
+        jMenuItem7.setText("Editar o Eliminar Empleado");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem7);
+
+        jMenu2.add(jMenu5);
+
         jMenuItem4.setText("Control");
         jMenu2.add(jMenuItem4);
-
-        jMenuItem5.setText("Empleados");
-        jMenu2.add(jMenuItem5);
 
         jMenuItem6.setText("Usuarios");
         jMenu2.add(jMenuItem6);
@@ -112,11 +134,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 588, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 278, Short.MAX_VALUE)
+            .addGap(0, 401, Short.MAX_VALUE)
         );
 
         pack();
@@ -147,6 +169,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         add(cargo);
         cargo.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        CrearEmpleado empleado = new CrearEmpleado();
+        add(empleado);
+        empleado.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+      EditarEliminarEmpleado empleado =new EditarEliminarEmpleado();
+        add(empleado);
+        empleado.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,12 +222,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem menuItemAreas;
     private javax.swing.JMenuItem menuItemAreas1;
     // End of variables declaration//GEN-END:variables
