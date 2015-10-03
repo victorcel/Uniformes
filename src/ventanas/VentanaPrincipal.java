@@ -5,6 +5,11 @@
  */
 package ventanas;
 
+import ventanas.area.CrearArea;
+import ventanas.area.EditarEliminarArea;
+import ventanas.cargo.EditarEliminarCargo;
+import ventanas.cargo.CrearCargo;
+
 /**
  *
  * @author vbarrera
@@ -16,8 +21,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
+        //setExtendedState(MAXIMIZED_BOTH);
         setLocationRelativeTo(this);
+        pack();
     }
 
     /**
@@ -32,8 +38,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        menuItemAreas = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        menuItemAreas1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -45,16 +55,45 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jMenu2.setText("Item");
 
-        jMenuItem2.setText("Areas");
+        jMenu3.setText("Area");
+
+        menuItemAreas.setText("Crear Area");
+        menuItemAreas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAreasActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuItemAreas);
+
+        jMenuItem1.setText("Editar o Eliminar Area");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
+        jMenu2.add(jMenu3);
+
+        jMenu4.setText("Cargo");
+
+        menuItemAreas1.setText("Crear Cargo");
+        menuItemAreas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAreas1ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(menuItemAreas1);
+
+        jMenuItem2.setText("Editar o Eliminar Cargo");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu4.add(jMenuItem2);
 
-        jMenuItem3.setText("Cargos");
-        jMenu2.add(jMenuItem3);
+        jMenu2.add(jMenu4);
 
         jMenuItem4.setText("Control");
         jMenu2.add(jMenuItem4);
@@ -83,11 +122,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        InternaArea area = new InternaArea();
+    private void menuItemAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAreasActionPerformed
+        CrearArea area = new CrearArea();
         add(area);
-area.setVisible(true);
+        area.setVisible(true);
 
+    }//GEN-LAST:event_menuItemAreasActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        EditarEliminarArea area = new EditarEliminarArea();
+        add(area);
+        area.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void menuItemAreas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAreas1ActionPerformed
+        CrearCargo cargo = new CrearCargo();
+        add(cargo);
+        cargo.setVisible(true);
+    }//GEN-LAST:event_menuItemAreas1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        EditarEliminarCargo cargo = new EditarEliminarCargo();
+        add(cargo);
+        cargo.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
@@ -101,7 +159,7 @@ area.setVisible(true);
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -128,11 +186,15 @@ area.setVisible(true);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem menuItemAreas;
+    private javax.swing.JMenuItem menuItemAreas1;
     // End of variables declaration//GEN-END:variables
 }
